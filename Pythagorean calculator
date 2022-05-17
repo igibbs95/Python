@@ -1,0 +1,18 @@
+from math import sqrt
+
+def get_length():
+    length = float(input("Enter x of triangle side: "))
+    return length
+
+def get_length2():
+    width = float(input("Enter y of triangle side: "))
+    return width
+
+side1 = get_length()
+side2 = get_length2()
+
+def calc_triangle(side1,side2):
+    side3 = sqrt(side1 * side1 + side2 * side2)
+    print("The length of z is : %.2f" %side3)
+
+calc_triangle(side1, side2)
