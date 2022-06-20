@@ -1,0 +1,9 @@
+def defangIPaddr(address):
+    new_address = address.split(".")
+    result = ""
+    for i in range(4):
+        result += new_address[i]
+        if(i < 3):
+            result += "[.]"
+    return result
+print(defangIPaddr("255.100.50.0"))
