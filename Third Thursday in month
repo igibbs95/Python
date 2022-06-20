@@ -1,0 +1,14 @@
+import calendar
+
+c = calendar.Calendar(firstweekday=calendar.SUNDAY)
+#need to change month and year variables to check third thursday
+year = 2022
+month = 12
+monthcal = c.monthdatescalendar(year, month)
+
+try:
+    third_thursday = [day for week in monthcal for day in week if
+                      day.weekday() == calendar.THURSDAY and day.month == month][2]
+    print(third_thursday)
+except IndexError:
+    print('no date found')
