@@ -1,0 +1,79 @@
+import random
+
+
+class Car:
+    def __init__(self, make, model, color, year, stock, miles, msrp, value):
+        self.make = make
+        self.model = model
+        self.color = color
+        self.year = year
+        self.stock = stock
+        self.miles = miles
+        self.msrp = msrp
+        self.value = value
+
+    def mile_cost(self):
+        self.value = 0
+        if self.miles in range(0, 500):
+            self.value += random.randint(5000, 8000)
+            return self.value
+        elif self.miles in range(501, 19999):
+            self.value += random.randint(2000, 5000)
+            return self.value
+        elif self.miles in range(20000, 50000):
+            self.value -= random.randint(1000, 2000)
+            return self.value
+        else:
+            self.value -= random.randint(3000, 5000)
+            return self.value
+
+    def year_tax(self):
+        self.value = 0
+        if self.year in range(2018, 2022):
+            self.value += random.randint(1000, 2000)
+            return self.value
+        elif self.year in range(2014, 2017):
+            self.value += random.randint(500, 1000)
+            return self.value
+        elif self.year in range(2000, 2013):
+            self.value -= random.randint(500, 1000)
+            return self.value
+        elif self.year in range(1990, 1999):
+            self.value -= random.randint(2000, 3000)
+            return self.value
+        else:
+            self.value -= random.randint(3000, 4000)
+            return self.value
+
+    def total_cost(self):
+        return self.year_tax() + self.mile_cost()
+
+    def sale(self):
+        return self.total_cost() + self.msrp
+
+    def in_stock(self):
+        if self.stock in range(1, 3):
+            return f"This is Unavailable. There are only {self.stock} in stock."
+        elif self.stock == 0:
+            return f"This is unavailable. There are none in stock"
+        else:
+            return self.ready()
+
+    def ready(self):
+        return f"This {self.year} {self.make} {self.model} in {self.color} is available for ${self.sale()}."
+
+    def __str__(self):
+        return f"This is a {self.year} {self.make} {self.model} in {self.color}.\n{self.in_stock()}"
+
+
+car1 = Car("Honda", "Accord", "blue", 2021, 4, 75000, 23000, 0)
+car2 = Car("Toyota", "Camry", "red", 2014, 10, 100567, 32000, 0)
+car3 = Car("Honda", "Civic", "black", 2022, 2, 0, 38000, 0)
+car4 = Car("Toyota", "Raptor", "grey", 2022, 5, 0, 68000, 0)
+car5 = Car("Dodge", "Ram", "silver", 2022, 0, 0, 59000, 0)
+
+print(car1)
+print(car2)
+print(car3)
+print(car4)
+print(car5)
