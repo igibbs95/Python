@@ -28,7 +28,8 @@ comp_energy = 0
 
 print("Welcome")
 time.sleep(2)
-print("Healing cost 15 energy."
+print("To select an action press 1, 2, or 3 followed by enter on the keyboard."
+      "\nHealing cost 15 energy."
       "\nSpecial attacks cost 20 energy."
       "\nYou gain 10 energy per normal attack."
       "\nYour goal is to get the computers Health to 0 before yours does...")
