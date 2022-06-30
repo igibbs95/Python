@@ -12,6 +12,7 @@ class Car:
         self.msrp = msrp
         self.value = value
 
+#changes value based on miles 
     def mile_cost(self):
         self.value = 0
         if self.miles in range(0, 500):
@@ -27,6 +28,7 @@ class Car:
             self.value -= random.randint(3000, 5000)
             return self.value
 
+#changes value based on year
     def year_tax(self):
         self.value = 0
         if self.year in range(2018, 2022):
@@ -45,9 +47,11 @@ class Car:
             self.value -= random.randint(3000, 4000)
             return self.value
 
+#returns updated self.value of year_tax + mile_cost
     def total_cost(self):
         return self.year_tax() + self.mile_cost()
 
+#combines year_tax and miles_cost to self.msrp
     def sale(self):
         return self.total_cost() + self.msrp
 
@@ -65,6 +69,7 @@ class Car:
     def __str__(self):
         return f"This is a {self.year} {self.make} {self.model} in {self.color}.\n{self.in_stock()}"
 
+#Car format == Make, model, color, year, stock, miles, msrp, value == 0
 
 car1 = Car("Honda", "Accord", "blue", 2021, 4, 75000, 23000, 0)
 car2 = Car("Toyota", "Camry", "red", 2014, 10, 100567, 32000, 0)
